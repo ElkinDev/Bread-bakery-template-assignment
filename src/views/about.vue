@@ -18,7 +18,7 @@ export default {
 
 <style scoped>
     .about{
-        background-image: url('../assets/images/bg_1.jpg');
+        background-image: transparent !important;
         height: auto;
         background-attachment: fixed;
         background-blend-mode: darken;

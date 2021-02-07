@@ -1,13 +1,14 @@
 <template>
+
     <div class="hero-wrap js-fullheight" >
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
-        	<h3 class="v">Modist - Time to get dress</h3>
+        	<h3 class="v">Luca's loaves - Time to eat Bread</h3>
         	<h3 class="vr">Since - 1985</h3>
           <div class="col-md-11 text-center m-auto">
-            <h1>Le pepino</h1>
-            <h2><span>Help to change the world</span></h2>
+            <h1>Luca’s Loaves</h1>
+            <h2><span>We love baking</span></h2>
           </div>
           <div class="mouse">
 						<a href="#" class="mouse-icon">
@@ -19,71 +20,11 @@
     </div>
     <div class="goto-here"></div>
     
-    <section class="ftco-section ftco-product">
-    	<div class="container">
-    		<div class="row justify-content-center mb-3 pb-3">
-          <div class="col-md-12 heading-section text-center ">
-          	<h1 class="big">Trending</h1>
-            <h2 class="mb-4">Trending</h2>
-          </div>
-        </div>
-    		<div class="row">
-    					<div class="item col-md-4 col-sm-6">
-		    				<div class="product">
-		    					<a href="#" class="img-prod"><img class="img-fluid" src="../assets/images/product-1.jpg" alt="Colorlib Template">
-		    						<span class="status">30%</span>
-		    					</a>
-		    					<div class="text pt-3 px-3">
-		    						<h3><a href="#">Young Woman Wearing Dress</a></h3>
-		    						<div class="d-flex">
-		    							<div class="pricing">
-			    							<p class="price"><span class="mr-2 price-dc">$120.00</span><span class="price-sale">$80.00</span></p>
-			    						</div>
-			    						<div class="rating">
-			    						
-			    						</div>
-		    						</div>
-		    					</div>
-		    				</div>
-	    				</div>
-	    				<div class="item col-md-4 col-sm-6">
-		    				<div class="product">
-		    					<a href="#" class="img-prod"><img class="img-fluid" src="../assets/images/product-2.jpg" alt="Colorlib Template"></a>
-		    					<div class="text pt-3 px-3">
-		    						<h3><a href="#">Young Woman Wearing Dress</a></h3>
-		    						<div class="d-flex">
-		    							<div class="pricing">
-				    						<p class="price"><span>$120.00</span></p>
-				    					</div>
-				    					<div class="rating">
-			    						
-			    						</div>
-			    					</div>
-		    					</div>
-		    				</div>
-	    				</div>
-	    				<div class="item col-md-4 col-sm-6">
-		    				<div class="product">
-		    					<a href="#" class="img-prod"><img class="img-fluid" src="../assets/images/product-3.jpg" alt="Colorlib Template"></a>
-		    					<div class="text pt-3 px-3">
-		    						<h3><a href="#">Young Woman Wearing Dress</a></h3>
-		    						<div class="d-flex">
-		    							<div class="pricing">
-				    						<p class="price"><span>$120.00</span></p>
-				    					</div>
-				    					<div class="rating">
-			    							
-			    						</div>
-			    					</div>
-		    					</div>
-		    				</div>
-	    				</div>
-    		</div>
-    	</div>
-    </section>
+  
+      <productist :title="title" :subtitle="subtitle" :type="gallery_type" :aligment="alignment"></productist>
 
 
-    <section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
+    <section class="ftco-section ftco-no-pb ftco-no-pt bg-light py-5">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center about-section" >
@@ -94,12 +35,11 @@
 					<div class="col-md-7 py-5 wrap-about pb-md-5">
 	          <div class="heading-section-bold mb-5 mt-md-5">
 	          	<div class="ml-md-0">
-		            <h2 class="mb-4">Modist <br>Online <br> <span>Fashion Shop</span></h2>
+		            <h2 class="mb-4">We make real bread from the best organic ingredients by hand, with dedication and with the best of care.</h2>
 	            </div>
 	          </div>
 	          <div class="pb-md-5">
-							<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
-							<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consequat, ante a sodales faucibus, purus elit condimentum tortor, a tempus lacus elit vitae lorem. Pellentesque pretium in nunc quis ultrices. Cras sagittis, dolor nec venenatis aliquam, arcu massa lobortis dui, sit amet fermentum leo risus non neque. Nulla feugiat urna hendrerit dignissim blandit. Sed aliquam lectus dapibus, tristique enim a, tristique orci. Aliquam dapibus mattis nunc. Aenean sit amet pellentesque tellus. Aenean congue dui eu nulla imperdiet finibus.</p>
 						</div>
 					</div>
 				</div>
@@ -107,184 +47,12 @@
 	</section>
 
 
-
-<section class="ftco-section bg-light">
-    	<div class="container">
-				<div class="row justify-content-center mb-3 pb-3">
-                    <div class="col-md-12 heading-section text-center">
-                        <h1 class="big">Products</h1>
-                        <h2 class="mb-4">Our Products</h2>
-                    </div>
-                </div>    		
-    	</div>
-    	<div class="container-fluid">
-    		<div class="row">
-    			<div class="col-sm col-md-6 col-lg">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="../assets/images/product-1.jpg" alt="Colorlib Template"></a>
-    					<div class="text py-3 px-3">
-    						<h3><a href="#">Young Woman Wearing Dress</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
-		    					</div>
-		    					<div class="rating">
-	    							
-	    						</div>
-	    					</div>
-	    					<hr>
-    						<p class="bottom-area d-flex">
-    							<a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-    							<a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
-    						</p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-sm col-md-6 col-lg">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="../assets/images/product-2.jpg" alt="Colorlib Template"></a>
-    					<div class="text py-3 px-3">
-    						<h3><a href="#">Young Woman Wearing Dress</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
-		    					</div>
-		    					<div class="rating">
-	    							
-	    						</div>
-	    					</div>
-	    					<hr>
-    						<p class="bottom-area d-flex">
-    							<a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-    							<a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
-    						</p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-sm col-md-6 col-lg">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="../assets/images/product-3.jpg" alt="Colorlib Template"></a>
-    					<div class="text py-3 px-3">
-    						<h3><a href="#">Young Woman Wearing Dress</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
-		    					</div>
-		    					<div class="rating">
-	    							
-	    						</div>
-	    					</div>
-	    					<hr>
-    						<p class="bottom-area d-flex">
-    							<a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-    							<a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
-    						</p>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-sm col-md-6 col-lg">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="../assets/images/product-4.jpg" alt="Colorlib Template"></a>
-    					<div class="text py-3 px-3">
-    						<h3><a href="#">Young Woman Wearing Dress</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
-		    					</div>
-		    					<div class="rating">
-	    							
-	    						</div>
-	    					</div>
-	    					<hr>
-    						<p class="bottom-area d-flex">
-    							<a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-    							<a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
-    						</p>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-</section>
-
-
-
-
-<section class="ftco-section ftco-section-more img call-to" >
-    	<div class="container">
-    		<div class="row justify-content-center mb-3 pb-3">
-          <div class="col-md-12 heading-section">
-          	<h2>Summer Sale</h2>
-          </div>
-        </div>
-    	</div>
-    </section>
-
-
-
-    <section class="ftco-section">
-      <div class="container">
-        <div class="row justify-content-center mb-3 pb-3">
-          <div class="col-md-12 heading-section text-center">
-            <h1 class="big">Blog</h1>
-            <h2>Recent Blog</h2>
-          </div>
-        </div>
-        <div class="row d-flex">
-          <div class="col-md-4 d-flex">
-            <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20 example-img" >
-              </a>
-              <div class="text mt-3 d-block">
-                <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <div class="meta mb-3">
-                  <div><a href="#">Dec 6, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex">
-            <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20 example-img" >
-              </a>
-              <div class="text mt-3">
-                <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                <div class="meta mb-3">
-                  <div><a href="#">Dec 6, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex">
-            <div class="blog-entry align-self-stretch">
-                <a href="blog-single.html" class="block-20 example-img">
-                </a>
-                <div class="text mt-3">
-                    <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-                    <div class="meta mb-3">
-                    <div><a href="#">Dec 6, 2018</a></div>
-                    <div><a href="#">Admin</a></div>
-                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                    </div>
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
     <section class="ftco-section bg-light ftco-services">
     	<div class="container">
     		<div class="row justify-content-center mb-3 pb-3">
           <div class="col-md-12 heading-section text-center">
             <h1 class="big">Services</h1>
-            <h2>We want you to express yourself</h2>
+            <h2>We want to express you</h2>
           </div>
         </div>
         <div class="row">
@@ -294,8 +62,8 @@
             		<span class="flaticon-002-recommended"></span>
               </div>
               <div class="media-body">
-                <h3 class="heading">Refund Policy</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <h3 class="heading">Sustanaible and organic Resources</h3>
+                <p>We make real bread from the best organic ingredients by hand, with dedication and with the best of care.  </p>
               </div>
             </div>      
           </div>
@@ -305,8 +73,8 @@
             		<span class="flaticon-001-box"></span>
               </div>
               <div class="media-body">
-                <h3 class="heading">Premium Packaging</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <h3 class="heading">organic packaging</h3>
+                <p></p>
               </div>
             </div>    
           </div>
@@ -317,13 +85,32 @@
               </div>
               <div class="media-body">
                 <h3 class="heading">Superior Quality</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <p></p>
               </div>
             </div>      
           </div>
         </div>
     	</div>
     </section>
+
+
+
+
+
+<section class="ftco-section ftco-section-more img call-to" >
+    	<div class="container">
+    		<div class="row justify-content-center mb-3 pb-3">
+          <div class="col-md-12 heading-section">
+          	<h2>“The sky is the daily bread of the eyes.” —Ralph Waldo Emerson</h2>
+          </div>
+        </div>
+    	</div>
+    </section>
+
+
+
+
+
 		
 		<section class="ftco-section-parallax">
       <div class="parallax-img d-flex align-items-center">
@@ -348,28 +135,36 @@
       </div>
     </section>
 
+
+ 
+
 </template>
 
 <script>
-
+import productist from '@/components/product_listing.vue'
 export default {
     name:'home',
-    
-  data() {
+    components: {
+      productist,
+    },
+    data() {
       return {
-       
+        gallery_type:'MOST_VIEWED',
+        title:'Bread types ranges',
+        subtitle:'Bread types ranges',
+        alignment:'center'
       }
     },
     methods: {
       
     },
-     mounted() {
-
-      
+    computed:{
+       shoppingCart() {
+        return this.$store.state.cart
+    },
 
     },
     created() {
-    console.log('At this point, this.property is now reactive and propertyComputed will update.')
   }  
 }
 
@@ -382,13 +177,14 @@ export default {
 
 }
 .hero-wrap{
-    background-image: url('../assets/images/bg_1.jpg');
+    background-image: url('../assets/images/breads/bread13.jpg');
     height: 698px;
+    background-attachment: fixed;
 }    
 .about-section{
-    background-image: url('../assets/images/bg_2.jpg');
+    background-image: url('../assets/images/breads/bread16.jpg');
 }
 .call-to{
-    background-image: url('../assets/images/bg_5.jpg');
+    background-image: url('../assets/images/breads/bread14.jpg');
 }
 </style>

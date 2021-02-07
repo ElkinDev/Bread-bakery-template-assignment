@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <nav class="navbar  navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" :class="{ 'position-sticky': isFixed }">
 	    <div class="container">
 	      <a class="navbar-brand" href="index.html">Modist</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,16 +15,16 @@
 
 
             <li class="nav-item">
-              <router-link tag="a" class="nav-link" to="/about">About</router-link>
+              <!-- <router-link tag="a" class="nav-link" to="/about">About</router-link> -->
             </li>
 
             <li class="nav-item ">
               <router-link tag="a" class="nav-link" to="/Shop">Shop</router-link>
             </li>
 
-            <li class="nav-item ">
+            <!-- <li class="nav-item ">
               <router-link tag="a" class="nav-link" to="/Blog">Blog</router-link>
-            </li>
+            </li> -->
 
             <li class="nav-item ">
               <router-link tag="a" class="nav-link" to="/Contact">Contact</router-link>
@@ -33,8 +33,9 @@
 	          <li class="nav-item cta cta-colored">
 
               <router-link tag="a" class="nav-link" to="/Cart">
-                <span class="icon-shopping_cart">
-                 </span>[0]
+
+              <font-awesome-icon :icon="['fas', 'shopping-cart']" />
+              [{{total_items}}]
               </router-link>
 
             </li>
@@ -44,14 +45,17 @@
 	    </div>
 	  </nav>
  
-  <router-view/>
+    <div class="content">
+      <router-view />
+
+    </div>
 
    <footer class="ftco-footer bg-light ftco-section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Modist</h2>
+              <h2 class="ftco-heading-2">Luca's loaves</h2>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -64,9 +68,8 @@
               <h2 class="ftco-heading-2">Menu</h2>
               <ul class="list-unstyled">
                 <li><a href="#" class="py-2 d-block">Shop</a></li>
-                <li><a href="#" class="py-2 d-block">About</a></li>
-                <li><a href="#" class="py-2 d-block">Journal</a></li>
-                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+                <!-- <li><a href="#" class="py-2 d-block">About</a></li> -->
+                <li><a href="#" class="py-2 d-block">Contact</a></li>
               </ul>
             </div>
           </div>
@@ -77,7 +80,7 @@
 	              <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
 	                <li><a href="#" class="py-2 d-block">Shipping Information</a></li>
 	                <li><a href="#" class="py-2 d-block">Returns &amp; Exchange</a></li>
-	                <li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
+	                <li><a href="#" class="py-2 d-block">Recipes and tips</a></li>
 	                <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
 	              </ul>
 	              <ul class="list-unstyled">
@@ -117,11 +120,85 @@
 
 
 <script>
+export default{
+  data() {
+    return {
+      joke:'',
+      scrolled:false,
+      stickyTop:'',
+      isFixed:false,
+      total_items:null,
+    }
+  },
+  methods: {
+    load_products(){
+      
+    },
+    loadcart_products(){
 
+    },
+    handleScroll () {
+       
+        this.scrolled = true;
+
+              this.navbar=document.getElementById('ftco-navbar');
+            this.stickyTop = this.navbar.offsetTop;
+            /* If the page was scrolled, handle the scroll */
+            if (this.scrolled) {
+                this.scrolled = false;
+                if (window.scrollY >= document.getElementsByClassName('content')[0].firstChild.nextSibling.offsetHeight) {
+
+                      this.isFixed = true
+
+                }
+                else {
+
+                      this.isFixed = false
+                }
+            }
+
+    }
+
+  },
+
+    created () {
+    window.addEventListener('scroll', this.handleScroll);
+    },
+    unmounted () {
+        window.removeEventListener('scroll', this.handleScroll);
+    },
+    computed: {
+    count () {
+      return this.$store.getters.getNumberOfProducts
+      // Or return basket.getters.fruitsCount
+      // (depends on your design decisions).
+    }
+  },
+  
+    mounted(){
+
+          this.$store.dispatch("load_products_list");
+          this.total_items=this.$store.getters.getNumberOfProducts
+
+          
+
+
+
+    },
+    watch: {
+    count (newCount, oldCount) {
+      // Our fancy notification (2).
+
+      this.total_items=newCount
+      console.log(`We have ${newCount} fruits now, yay!`)
+      console.log(`We have ${oldCount} fruits now, yay!`)
+    }
+  }
+
+}
 </script>
 
 <style >
-
 
 :root {
 /* CSS HEX */
@@ -137,6 +214,8 @@
 --cornsilk: hsla(52, 94%, 94%, 1);
 --fawn: hsla(32, 65%, 62%, 1);
 --liver-dogs: hsla(28, 67%, 44%, 1);
+--bakery-color-1:rgb(197, 157, 110);
+
 
 }
 /*!
@@ -7425,10 +7504,10 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: var(--dark-olive-green); }
+  color: var(--bakery-color-1); }
   a:hover {
     text-decoration: none;
-    color: var(--dark-olive-green); }
+    color: var(--bakery-color-1); }
 
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
@@ -7437,12 +7516,16 @@ h1, h2, h3, h4, h5,
   color: #000000; }
 
 .text-primary {
-  color: var(--dark-olive-green) !important; }
+  color: var(--bakery-color-1) !important; }
 
+
+.ftco-navbar-light.position-sticky{
+  background:var(--bakery-color-1);
+}
 .ftco-navbar-light {
   background: transparent !important;
   position: absolute;
-  top: 20px;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 3;
@@ -7525,7 +7608,7 @@ h1, h2, h3, h4, h5,
     @media (max-width: 991.98px) {
       .ftco-navbar-light .navbar-nav > .nav-item.cta > a {
         color: #fff;
-        background: var(--dark-olive-green); } }
+        background: var(--bakery-color-1); } }
   .ftco-navbar-light .navbar-nav > .nav-item.active > a {
     color: #000000; }
     @media (max-width: 991.98px) {
@@ -7551,16 +7634,16 @@ h1, h2, h3, h4, h5,
     -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); }
     .ftco-navbar-light.scrolled .nav-item.active > a {
-      color: var(--dark-olive-green) !important; }
+      color: var(--bakery-color-1) !important; }
     .ftco-navbar-light.scrolled .nav-item.cta > a {
       color: #fff !important;
-      background: var(--dark-olive-green);
+      background: var(--bakery-color-1);
       border: none !important; }
       .ftco-navbar-light.scrolled .nav-item.cta > a span {
         display: inline-block;
         color: #fff !important; }
     .ftco-navbar-light.scrolled .nav-item.cta.cta-colored span {
-      border-color: var(--dark-olive-green); }
+      border-color: var(--bakery-color-1); }
     @media (max-width: 991.98px) {
       .ftco-navbar-light.scrolled .navbar-nav {
         background: none;
@@ -7586,7 +7669,7 @@ h1, h2, h3, h4, h5,
       padding-bottom: 0.9rem !important;
       color: #000000 !important; }
       .ftco-navbar-light.scrolled .nav-link.active {
-        color: var(--dark-olive-green) !important; }
+        color: var(--bakery-color-1) !important; }
     .ftco-navbar-light.scrolled.awake {
       margin-top: 0px;
       -webkit-transition: .3s all ease-out;
@@ -7622,7 +7705,7 @@ h1, h2, h3, h4, h5,
     content: '';
     opacity: .6;
     width: 50%;
-    background: var(--dark-olive-green); }
+    background: var(--bakery-color-1); }
   .hero-wrap .slider-text {
     color: #fff;
     }
@@ -7815,7 +7898,7 @@ h1, h2, h3, h4, h5,
       -ms-transform: translateY(-50%);
       transform: translateY(-50%);
       margin-top: -10px;
-      color: var(--dark-olive-green) !important;
+      color: var(--bakery-color-1) !important;
       -moz-transition: all 0.7s ease;
       -o-transition: all 0.7s ease;
       -webkit-transition: all 0.7s ease;
@@ -7868,7 +7951,7 @@ h1, h2, h3, h4, h5,
   background: #f8f9fa !important; }
 
 .bg-primary {
-  background: var(--dark-olive-green); }
+  background: var(--bakery-color-1); }
 
 .btn {
   cursor: pointer;
@@ -7881,20 +7964,20 @@ h1, h2, h3, h4, h5,
   .btn:hover, .btn:active, .btn:focus {
     outline: none; }
   .btn.btn-primary {
-    background: var(--dark-olive-green);
-    border: 1px solid var(--dark-olive-green);
+    background: var(--bakery-color-1);
+    border: 1px solid var(--bakery-color-1);
     color: #fff; }
     .btn.btn-primary:hover {
-      border: 1px solid var(--dark-olive-green);
+      border: 1px solid var(--bakery-color-1);
       background: transparent;
-      color: var(--dark-olive-green); }
+      color: var(--bakery-color-1); }
     .btn.btn-primary.btn-outline-primary {
-      border: 1px solid var(--dark-olive-green);
+      border: 1px solid var(--bakery-color-1);
       background: transparent;
-      color: var(--dark-olive-green); }
+      color: var(--bakery-color-1); }
       .btn.btn-primary.btn-outline-primary:hover {
         border: 1px solid transparent;
-        background: var(--dark-olive-green);
+        background: var(--bakery-color-1);
         color: #fff; }
   .btn.btn-outline-white {
     border-color: rgba(255, 255, 255, 0.8);
@@ -7908,7 +7991,7 @@ h1, h2, h3, h4, h5,
     .btn.btn-outline-white:hover, .btn.btn-outline-white:focus, .btn.btn-outline-white:active {
       background: #fff;
       border-color: #fff;
-      color: var(--dark-olive-green); }
+      color: var(--bakery-color-1); }
 
 .img-2 {
   position: relative; }
@@ -7919,7 +8002,7 @@ h1, h2, h3, h4, h5,
   .img-2 .icon {
     width: 100px;
     height: 100px;
-    background: var(--dark-olive-green);
+    background: var(--bakery-color-1);
     -webkit-animation: pulse 2s infinite;
     animation: pulse 2s infinite;
     -webkit-border-radius: 50%;
@@ -7937,7 +8020,7 @@ h1, h2, h3, h4, h5,
       padding-left: 6em; } }
   .wrap-about .heading-section-bold h2 {
     text-transform: uppercase;
-    font-size: 70px;
+    font-size: 50px;
     font-weight: 400;
     line-height: 1;
     font-family: "Roboto Condensed", Arial, sans-serif;
@@ -7967,7 +8050,7 @@ h1, h2, h3, h4, h5,
       padding: 2px 15px;
       color: #000000;
       font-weight: 300;
-      background: var(--dark-olive-green); }
+      background: var(--bakery-color-1); }
     .product .img-prod img {
       -webkit-transform: scale(1);
       -moz-transform: scale(1);
@@ -8062,7 +8145,7 @@ h1, h2, h3, h4, h5,
   height: 54px !important;
   text-align: center;
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  color: var(--dark-olive-green);
+  color: var(--bakery-color-1);
   padding: 10px 20px;
   background: transparent !important;
   -webkit-border-radius: 0;
@@ -8114,7 +8197,7 @@ h1, h2, h3, h4, h5,
       letter-spacing: 2px; }
 
 .ftco-cart button i {
-  color: var(--dark-olive-green); }
+  color: var(--bakery-color-1); }
 
 .ftco-cart .quantity-left-minus {
   background: transparent;
@@ -8144,9 +8227,9 @@ h1, h2, h3, h4, h5,
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    color: var(--dark-olive-green); }
+    color: var(--bakery-color-1); }
     .ftco-cart .form-group .icon span {
-      color: var(--dark-olive-green); }
+      color: var(--bakery-color-1); }
     @media (max-width: 767.98px) {
       .ftco-cart .form-group .icon {
         right: 10px; } }
@@ -8184,8 +8267,8 @@ h1, h2, h3, h4, h5,
       padding: 5px 10px;
       color: #000000; }
       .table tbody tr td.product-remove a:hover {
-        border: 1px solid var(--dark-olive-green);
-        background: var(--dark-olive-green); }
+        border: 1px solid var(--bakery-color-1);
+        background: var(--bakery-color-1); }
         .table tbody tr td.product-remove a:hover span {
           color: #fff; }
     .table tbody tr td.quantity {
@@ -8286,7 +8369,7 @@ h1, h2, h3, h4, h5,
     /* Firefox 18- */
     color: rgba(0, 0, 0, 0.4); }
   .billing-form .form-control:focus, .billing-form .form-control:active {
-    border-color: var(--dark-olive-green) !important; }
+    border-color: var(--bakery-color-1) !important; }
 
 .billing-form textarea.form-control {
   height: inherit !important; }
@@ -8367,7 +8450,7 @@ textarea.form-control {
   visibility: hidden; }
 
 .bg-primary {
-  background: var(--dark-olive-green) !important; }
+  background: var(--bakery-color-1) !important; }
 
 .goto-here {
   width: 100%;
@@ -8390,7 +8473,7 @@ textarea.form-control {
   padding: 15em 0; }
   .ftco-section-more .heading-section h2 {
     font-weight: 700;
-    font-size: 120px;
+    font-size: 80px;
     color: #fff;
     letter-spacing: 0; }
     @media (max-width: 991.98px) {
@@ -8697,7 +8780,7 @@ textarea.form-control {
     content: '';
     z-index: -1;
     opacity: 0;
-    background: var(--dark-olive-green); }
+    background: var(--bakery-color-1); }
 
 .ftco-counter {
   padding: 7em 0; }
@@ -8716,7 +8799,7 @@ textarea.form-control {
     display: block;
     font-size: 72px;
     font-weight: bold;
-    color: var(--dark-olive-green); }
+    color: var(--bakery-color-1); }
   .ftco-counter .ftco-label {
     font-size: 12px;
     text-transform: uppercase;
@@ -8751,7 +8834,7 @@ textarea.form-control {
     .blog-entry .text .heading a {
       color: #000000; }
       .blog-entry .text .heading a:hover, .blog-entry .text .heading a:focus, .blog-entry .text .heading a:active {
-        color: var(--dark-olive-green); }
+        color: var(--bakery-color-1); }
   .blog-entry .text .meta-chat {
     color: #b3b3b3; }
   .blog-entry .text .read {
@@ -8850,8 +8933,8 @@ textarea.form-control {
         appearance: none; }
   .block-17 form .search-submit {
     width: 160px;
-    background: var(--dark-olive-green);
-    border: 1px solid var(--dark-olive-green);
+    background: var(--bakery-color-1);
+    border: 1px solid var(--bakery-color-1);
     color: #fff;
     padding: 12px 10px;
     -webkit-border-radius: 0;
@@ -8862,9 +8945,9 @@ textarea.form-control {
       .block-17 form .search-submit {
         width: 80px; } }
     .block-17 form .search-submit:hover {
-      background: var(--dark-olive-green) !important;
+      background: var(--bakery-color-1) !important;
       color: #fff !important;
-      border: 1px solid var(--dark-olive-green) !important; }
+      border: 1px solid var(--bakery-color-1) !important; }
 
 .block-27 ul {
   padding: 0;
@@ -8874,16 +8957,16 @@ textarea.form-control {
     margin-bottom: 4px;
     font-weight: 400; }
     .block-27 ul li a, .block-27 ul li span {
-      color: var(--dark-olive-green);
+      color: var(--bakery-color-1);
       text-align: center;
       display: inline-block;
       width: 40px;
       height: 40px;
       line-height: 40px;
       border-radius: 50%;
-      border: 1px solid var(--dark-olive-green); }
+      border: 1px solid var(--bakery-color-1); }
     .block-27 ul li.active a, .block-27 ul li.active span {
-      background: var(--dark-olive-green);
+      background: var(--bakery-color-1);
       color: #fff;
       border: 1px solid transparent; }
 
@@ -8915,7 +8998,7 @@ textarea.form-control {
     .block-21 .text .heading a {
       color: #000000; }
       .block-21 .text .heading a:hover, .block-21 .text .heading a:active, .block-21 .text .heading a:focus {
-        color: var(--dark-olive-green); }
+        color: var(--bakery-color-1); }
   .block-21 .text .meta > div {
     display: inline-block;
     font-size: 12px;
