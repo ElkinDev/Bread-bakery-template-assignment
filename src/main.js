@@ -9,9 +9,11 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(faShoppingCart,faPlus,faHeart,faTrashAlt)
 
+import Vuelidate from 'vuelidate'
 
 createApp(App)
 .component('font-awesome-icon', FontAwesomeIcon)
 .use(store)
+.use(Vuelidate)
 .use(router)
 .mount('#app')
