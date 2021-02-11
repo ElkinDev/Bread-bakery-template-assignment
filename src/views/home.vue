@@ -150,8 +150,8 @@ export default {
     data() {
       return {
         gallery_type:'MOST_VIEWED',
-        title:'Bread types ranges',
-        subtitle:'Bread types ranges',
+        title:'Breads',
+        subtitle:'Breads',
         alignment:'center'
       }
     },

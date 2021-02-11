@@ -9,6 +9,8 @@ export default createStore({
     deliveryfees:0,
     total:0,
     Discount:0,
+    products_summary:[],
+    purchase_summary:{}
   },
   mutations: {
     //synchrous to create methods   
@@ -51,6 +53,12 @@ export default createStore({
             age: a.price + b.price, //select age in object array
           };
         });
+    },
+
+    setpurchase_review(state,payload){
+      state.products_summary=state.cart
+      state.cart=[]
+      state.purchase_summary=payload
     }
   
   },

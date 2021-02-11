@@ -146,15 +146,18 @@ export default{
             /* If the page was scrolled, handle the scroll */
             if (this.scrolled) {
                 this.scrolled = false;
-                if (window.scrollY >= document.getElementsByClassName('content')[0].firstChild.nextSibling.offsetHeight) {
+                // if(document.getElementsByClassName('content')[0]){
+                //      if (window.scrollY >= document.getElementsByClassName('content')[0].firstChild.nextSibling.offsetHeight) {
 
-                      this.isFixed = true
+                //       this.isFixed = true
 
-                }
-                else {
+                //   }
+                //   else {
 
-                      this.isFixed = false
-                }
+                //         this.isFixed = false
+                //   }
+                // }
+               
             }
 
     }
@@ -8345,8 +8348,6 @@ h1, h2, h3, h4, h5,
 
 .billing-form .form-control {
   font-weight: 300;
-  border: transparent !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
   height: 58px !important;
   padding-left: 15px;
   padding-right: 15px;

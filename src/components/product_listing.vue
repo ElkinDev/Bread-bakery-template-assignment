@@ -10,45 +10,74 @@
         </div>
         </div>
     	<div class="container-fluid">
-    		<div class="row" :class="[alignment ? 'center' : 'justify-content-center']" >
 
+    		<div class="row" :class="[alignment ? 'center' : 'justify-content-center']" v-if="type=='MOST_VIEWED'" >
+                <div class="col-sm col-md-6 col-lg-3"  v-for="product in list_products.slice(0, 3)" :key="product.id">
+                            <div class="product" data-id="{{product.id}}" >
+                            <a href="#" class="img-prod"><img class="img-fluid" :src="product.image_feature" :alt="product.title">
+                                        <span class="status">{{product.metaTitle}}</span>
+                            </a>
+                            <div class="text py-3 px-3">
+                                <h3><a href="#">{{product.title}}</a></h3>
+                                <div class="d-flex">
+                                    <div class="pricing">
+                                                <p class="price">
+                                                    <!-- <span class="mr-2 price-dc">$9.00</span> -->
+                                                <span class="price-sale">${{product.price}}</span></p>
+                                    </div>
+                                    <div class="rating">
+                                        <p class="text-right">
+                                            <span class="ion-ios-star-outline"></span>
+                                            <span class="ion-ios-star-outline"></span>
+                                            <span class="ion-ios-star-outline"></span>
+                                            <span class="ion-ios-star-outline"></span>
+                                            <span class="ion-ios-star-outline"></span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <p class="bottom-area d-flex">
+                                    <a href="javascript:;" @click="add_to_cart(product)" class="add-to-cart"><span>Add to cart <font-awesome-icon :icon="['fas', 'plus']" /></span></a>
+                                    <a href="javascript:;" @click="add_to_favorites(product)" class="ml-auto"><font-awesome-icon :icon="['fas', 'heart']" /></a>
+                                </p>
+                            </div>
+                        </div>
+                </div>	
+    	    </div>
 
-            <div class="col-sm col-md-6 col-lg-3" v-for="product in list_products.slice(0, 3)" :key="product.id">
-    					<div class="product" data-id="{{product.id}}" >
-    					<a href="#" class="img-prod"><img class="img-fluid" :src="product.image_feature" :alt="product.title">
-		    						<span class="status">{{product.metaTitle}}</span>
-		    			</a>
-    					<div class="text py-3 px-3">
-    						<h3><a href="#">{{product.title}}</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-			    							<p class="price">
-                                                <!-- <span class="mr-2 price-dc">$9.00</span> -->
-                                            <span class="price-sale">${{product.price}}</span></p>
-		    					</div>
-		    					<div class="rating">
-	    							<p class="text-right">
-	    								<span class="ion-ios-star-outline"></span>
-	    								<span class="ion-ios-star-outline"></span>
-	    								<span class="ion-ios-star-outline"></span>
-	    								<span class="ion-ios-star-outline"></span>
-	    								<span class="ion-ios-star-outline"></span>
-	    							</p>
-	    						</div>
-	    					</div>
-	    					<hr>
-    						<p class="bottom-area d-flex">
-    							<a href="javascript:;" @click="add_to_cart(product)" class="add-to-cart"><span>Add to cart <font-awesome-icon :icon="['fas', 'plus']" /></span></a>
-    							<a href="javascript:;" @click="add_to_favorites(product)" class="ml-auto"><font-awesome-icon :icon="['fas', 'heart']" /></a>
-    						</p>
-    					</div>
-    				</div>
-    		</div>
-    			
-
-             
-    			
-    	</div>
+            <div class="row" :class="[alignment ? 'center' : 'justify-content-center']" v-if="type=='SHOP'" >
+                <div class="col-sm col-md-6 col-lg-3"  v-for="product in list_products" :key="product.id">
+                            <div class="product" data-id="{{product.id}}" >
+                            <a href="#" class="img-prod"><img class="img-fluid" :src="product.image_feature" :alt="product.title">
+                                        <span class="status">{{product.metaTitle}}</span>
+                            </a>
+                            <div class="text py-3 px-3">
+                                <h3><a href="#">{{product.title}}</a></h3>
+                                <div class="d-flex">
+                                    <div class="pricing">
+                                                <p class="price">
+                                                    <!-- <span class="mr-2 price-dc">$9.00</span> -->
+                                                <span class="price-sale">${{product.price}}</span></p>
+                                    </div>
+                                    <div class="rating">
+                                        <p class="text-right">
+                                            <span class="ion-ios-star-outline"></span>
+                                            <span class="ion-ios-star-outline"></span>
+                                            <span class="ion-ios-star-outline"></span>
+                                            <span class="ion-ios-star-outline"></span>
+                                            <span class="ion-ios-star-outline"></span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <p class="bottom-area d-flex">
+                                    <a href="javascript:;" @click="add_to_cart(product)" class="add-to-cart"><span>Add to cart <font-awesome-icon :icon="['fas', 'plus']" /></span></a>
+                                    <a href="javascript:;" @click="add_to_favorites(product)" class="ml-auto"><font-awesome-icon :icon="['fas', 'heart']" /></a>
+                                </p>
+                            </div>
+                        </div>
+                </div>	
+    	    </div>
     	</div>
     </section>
 </template>
