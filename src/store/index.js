@@ -14,7 +14,6 @@ export default createStore({
   },
   mutations: {
     //synchrous to create methods   
- 
 
     run_products_list(state,payload) {
       state.products.push(payload)
@@ -97,6 +96,9 @@ export default createStore({
     },
     getNumberOfProducts: state => (state.cart) ? state.cart.length : 0,
     get_carts:state => state.cart,
+    get_summary_cart_products:state =>state.products_summary,
+    get_summary_cart_purchase:state =>state.purchase_summary,
+
 
 
      

@@ -83,6 +83,7 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2'
 export default {
     name:'productist',
     props: {
@@ -102,6 +103,25 @@ export default {
          add_to_cart(product){
              let product_send=product;
              this.$store.commit('addToCart', product_send)
+
+            const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+            })
+
+            Toast.fire({
+            icon: 'success',
+            title: 'Product added to cart',
+            // html:'<a href="/Cart" >Go to cart</a>'
+            })
+
 
         },
         add_to_favorites(product){

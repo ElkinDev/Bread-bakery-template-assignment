@@ -270,11 +270,11 @@ export default {
 
 				this.asyncpops_modal("Excellent","Orden has been placed succesfully ","success","checkout_success",data)
 	
-				checkout_data={}
+			
 				setTimeout(() => {
 					this.$store.commit('setpurchase_review', checkout_data)
 					this.$router.push('/purchase-summary/' + data.data.insertId); 
-
+					checkout_data={}
 				}, 2000);
 
 

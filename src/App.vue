@@ -1,7 +1,9 @@
 <template>
-    <nav class="navbar  navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" :class="{ 'position-sticky': isFixed }">
+    <nav class="navbar  navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" :class="{ 'position-sticky': isFixed, 'position-sticky-color': isFixed }">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Modist</a>
+        
+        <router-link tag="a" class="navbar-brand" to="/Cart">LUCA’S </router-link>
+
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -67,9 +69,16 @@
             <div class="ftco-footer-widget mb-4 ml-md-5">
               <h2 class="ftco-heading-2">Menu</h2>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Shop</a></li>
-                <!-- <li><a href="#" class="py-2 d-block">About</a></li> -->
-                <li><a href="#" class="py-2 d-block">Contact</a></li>
+
+                <li>
+                  <router-link tag="a" class="py-2 d-block" to="/Shop">Shop</router-link>                  
+                </li>
+
+                <li>
+                  <router-link tag="a" class="py-2 d-block" to="/Contact">Contact</router-link>                  
+
+                  
+                </li>
               </ul>
             </div>
           </div>
@@ -95,9 +104,9 @@
             	<h2 class="ftco-heading-2">Have a Questions?</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	                <li><span class="icon icon-map-marker"></span><span class="text">8 Fourth Avenue, Brunswick West, VIC </span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+6 401 972 801</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">elkinmendoza00@gmail.com</span></a></li>
 	              </ul>
 	            </div>
             </div>
@@ -107,7 +116,7 @@
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						  Copyright &copy; All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://www.linkedin.com/in/elkinmendozacova" target="_blank">ElkinDev</a>
+						   Site developed  with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://www.linkedin.com/in/elkinmendozacova" target="_blank">ElkinDev</a>
 						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						</p>
           </div>
@@ -146,17 +155,17 @@ export default{
             /* If the page was scrolled, handle the scroll */
             if (this.scrolled) {
                 this.scrolled = false;
-                // if(document.getElementsByClassName('content')[0]){
-                //      if (window.scrollY >= document.getElementsByClassName('content')[0].firstChild.nextSibling.offsetHeight) {
+                if(document.getElementsByClassName('content')[0]){
+                     if (window.scrollY >= document.getElementsByClassName('content')[0].firstChild.nextSibling.offsetHeight) {
 
-                //       this.isFixed = true
+                      this.isFixed = true
 
-                //   }
-                //   else {
+                  }
+                  else {
 
-                //         this.isFixed = false
-                //   }
-                // }
+                        this.isFixed = false
+                  }
+                }
                
             }
 
@@ -189,12 +198,10 @@ export default{
 
     },
     watch: {
-    count (newCount, oldCount) {
+    count (newCount) {
       // Our fancy notification (2).
 
       this.total_items=newCount
-      console.log(`We have ${newCount} fruits now, yay!`)
-      console.log(`We have ${oldCount} fruits now, yay!`)
     }
   }
 
@@ -202,6 +209,9 @@ export default{
 </script>
 
 <style >
+
+
+
 
 :root {
 /* CSS HEX */
@@ -9322,8 +9332,21 @@ textarea.form-control {
 
 
   
+.position-sticky-color{
+  background:#000 !important;
+  color: #fff !important;
+}
+.position-sticky-color .nav-link{
+    color: #fff !important;
 
+}
+
+.position-sticky-color .nav-link:hover{
+    font-weight: bolder !important;
+
+}
 
 
 
 </style>
+
