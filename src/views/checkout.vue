@@ -265,7 +265,7 @@ export default {
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify(checkout_data)
                 };
-                const response = await fetch("http://localhost:3000/api/v1.0/order",requestOptions);
+                const response = await fetch("https://dbshoppingcartnodejs.herokuapp.com/api/v1.0/order",requestOptions);
                 const data = await response.json();
 
 				this.asyncpops_modal("Excellent","Orden has been placed succesfully ","success","checkout_success",data)

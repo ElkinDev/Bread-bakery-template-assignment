@@ -68,7 +68,7 @@ export default createStore({
     async load_products_list(state){
       
 
-      const response = await fetch("http://localhost:3000/api/v1.0/productlist");
+      const response = await fetch("https://dbshoppingcartnodejs.herokuapp.com/api/v1.0/productlist");
       const data = await response.json();
       state.commit("run_products_list",data)
 
