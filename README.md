@@ -1,5 +1,9 @@
 # Bakery Shopping Cart Template
 
+
+![alt text](https://github.com/ElkinDev/Bread-bakery-template-assignment/blob/master/src/assets/images/template_lucas%20loave.png?raw=true)
+
+
 ## Project setup
 ```
 npm install
