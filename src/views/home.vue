@@ -172,10 +172,6 @@ export default {
 
 <style lang="css">
 
-.example-img{
-        background-image: url('../assets/images/image_1.jpg');
-
-}
 .hero-wrap{
     background-image: url('../assets/images/breads/bread13.jpg');
     height: 698px;
