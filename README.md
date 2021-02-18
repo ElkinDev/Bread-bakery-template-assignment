@@ -1,4 +1,4 @@
-# climate-pickle-website
+# Bakery Shopping Cart Template
 
 ## Project setup
 ```
