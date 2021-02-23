@@ -266,12 +266,20 @@ export default {
 					body: JSON.stringify(checkout_data)
                 };
                 const response = await fetch("https://dbshoppingcartnodejs.herokuapp.com/api/v1.0/order",requestOptions);
-                const data = await response.json();
+				const data = await response.json();
+				
+
+				console.log('this is the data again',data)
 
 				this.asyncpops_modal("Excellent","Orden has been placed succesfully ","success","checkout_success",data)
 	
+
+				console.log('pass through again')
+
 			
 				setTimeout(() => {
+				console.log('got it in here')
+
 					this.$store.commit('setpurchase_review', checkout_data)
 					this.$router.push('/purchase-summary/' + data.data.insertId); 
 					checkout_data={}
